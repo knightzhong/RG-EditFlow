@@ -1,4 +1,4 @@
-# EditFlow
+# RG-EditFlow
 
 EditFlow is a reliability-gated edit-flow framework for offline model-based optimization (MBO). It uses offline score models to propose local edits around elite designs, reliability-gated flow matching to learn an edit generator, and trust-region reranking to select final candidates without additional oracle queries during candidate construction.
 
