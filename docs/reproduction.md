@@ -1,12 +1,12 @@
 # Reproduction Guide
 
-This guide gives commands for rerunning TrajFlow experiments from the code-only release. It does not include precomputed results.
+This guide gives commands for rerunning EditFlow experiments from the code release. It does not include precomputed results.
 
 ## Environment
 
 ```bash
 conda env create -f environment.yml
-conda activate ggfm-a407d81-fm
+conda activate editflow
 python -c "import torch, gpytorch, design_bench; print(torch.__version__, torch.cuda.is_available(), gpytorch.__version__)"
 ```
 
@@ -43,7 +43,7 @@ python -u main.py \
   --metrics-path runs/example_eval/metrics.json
 ```
 
-## Paper-Defense Experiment Grid
+## Experiment Grid
 
 Dry run:
 
@@ -77,4 +77,4 @@ The scripts may create these local directories when run:
 - `checkpoints*/`
 - `paper_candidates/` inside a run group
 
-These generated directories are excluded from the code-only release and should not be committed unless a separate artifact-release policy is used.
+These generated directories are excluded from version control and should not be committed unless a separate artifact-release policy is used.

@@ -1,31 +1,33 @@
-# TrajFlow Code Release
+# EditFlow
 
-This repository contains the source code for TrajFlow, a reliability-gated trajectory-flow method for offline model-based optimization.
+EditFlow is a reliability-gated edit-flow framework for offline model-based optimization (MBO). It uses offline score models to propose local edits around elite designs, reliability-gated flow matching to learn an edit generator, and trust-region reranking to select final candidates without additional oracle queries during candidate construction.
 
-This reviewer-facing package intentionally contains **code only**:
+This repository contains the code release for EditFlow.
 
-- no pretrained checkpoints;
-- no generated experiment results;
-- no `runs/` directories;
-- no paper tables, figures, or PDFs;
-- no private planning notes or intermediate logs.
-
-The code can train models, evaluate checkpoints, run paper-defense experiment grids, and regenerate result artifacts from newly produced runs.
-
-## Contents
+## What Is Included
 
 - `main.py`: command-line entry point for training and evaluation.
-- `src/`: model, generator, GP teacher, trajectory-source, quality-gating, evaluation, and checkpoint helpers.
-- `scripts/`: smoke, training, evaluation, and paper-defense experiment drivers.
+- `src/`: flow model, proposal generation, quality gating, trust-region reranking, evaluation, and checkpoint helpers.
+- `scripts/`: smoke tests, training/evaluation drivers, and experiment-grid utilities.
 - `tests/`: unit tests for core code paths.
 - `environment.yml` / `requirements.txt`: dependency specifications.
-- `docs/reproduction.md`: command examples for running smoke checks and reproducing experiments from scratch.
+- `docs/reproduction.md`: commands for smoke checks and experiment reproduction.
 
-## Quick Start
+Generated artifacts such as `runs/`, checkpoints, caches, and paper PDFs are intentionally excluded from version control.
+
+## Installation
 
 ```bash
 conda env create -f environment.yml
-conda activate ggfm-a407d81-fm
+conda activate editflow
+pip install -r requirements.txt
+```
+
+## Quick Checks
+
+Run unit tests:
+
+```bash
 pytest -q tests/test_quality.py tests/test_evaluation.py
 ```
 
@@ -35,12 +37,16 @@ Run a small smoke experiment:
 bash scripts/run_smoke.sh
 ```
 
-Run a paper-defense dry run without executing expensive jobs:
+Run an experiment-grid dry run without executing expensive jobs:
 
 ```bash
 python scripts/paper_defense/run_experiment.py --stages stage1 --dry-run
 ```
 
-## Notes for Reviewers
+## Reproduction
 
-Design-Bench tasks may download/load benchmark data through the `design-bench` package. Full experiments require a CUDA-capable GPU and can be time-consuming. The package does not include checkpoint weights or generated results; those are intentionally excluded so reviewers can inspect and rerun the code path directly.
+See `docs/reproduction.md` for example commands covering smoke tests, checkpoint evaluation, experiment-grid execution, aggregation, and candidate-table generation.
+
+## Notes
+
+Design-Bench tasks may download or load benchmark data through the `design-bench` package. Full experiments require a CUDA-capable GPU and can be time-consuming.

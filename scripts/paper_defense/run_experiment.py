@@ -181,7 +181,7 @@ def run_job(job: Dict[str, object], run_group: Path, cwd: Path, env_name: str, g
     monitor.start()
     env = os.environ.copy()
     env.setdefault("PYTHONDONTWRITEBYTECODE", "1")
-    env.setdefault("PYTHONPYCACHEPREFIX", "/tmp/ggfm_a407d81_pycache")
+    env.setdefault("PYTHONPYCACHEPREFIX", "/tmp/editflow_pycache")
     with log_path.open("w", encoding="utf-8") as log_handle:
         log_handle.write(f"[START] {now_iso()}\n")
         log_handle.write(shlex.join(command) + "\n\n")
@@ -215,7 +215,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--stages", nargs="+", choices=["stage1", "stage2", "stage3"], default=["stage1"])
     parser.add_argument("--tasks", nargs="+", choices=sorted(TASKS), default=sorted(TASKS))
     parser.add_argument("--seeds", nargs="+", type=int, default=SEEDS)
-    parser.add_argument("--env-name", default=os.environ.get("GGFM_ENV", "root_mbo"))
+    parser.add_argument("--env-name", default=os.environ.get("EDITFLOW_ENV", "editflow"))
     parser.add_argument("--gpu-interval", type=float, default=2.0)
     parser.add_argument("--max-runs", type=int, default=None)
     parser.add_argument("--dry-run", action="store_true")

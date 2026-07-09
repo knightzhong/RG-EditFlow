@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ENV_NAME="${GGFM_ENV:-root_mbo}"
-RUN_DIR="${GGFM_RUN_DIR:-runs}"
+ENV_NAME="${EDITFLOW_ENV:-editflow}"
+RUN_DIR="${EDITFLOW_RUN_DIR:-runs}"
 STAMP="$(date +%Y%m%d_%H%M%S)"
 LOG_PATH="${RUN_DIR}/smoke_a407d81_${STAMP}.log"
 METRICS_PATH="${RUN_DIR}/smoke_a407d81_${STAMP}.json"
@@ -10,10 +10,10 @@ METRICS_PATH="${RUN_DIR}/smoke_a407d81_${STAMP}.json"
 mkdir -p "${RUN_DIR}" checkpoints_smoke
 export PYTHONDONTWRITEBYTECODE=1
 
-echo "[GGFM smoke] env=${ENV_NAME}"
-echo "[GGFM smoke] log=${LOG_PATH}"
-echo "[GGFM smoke] metrics=${METRICS_PATH}"
-echo "[GGFM smoke] commit=$(git rev-parse --short HEAD) $(git show -s --format=%s HEAD)"
+echo "[EditFlow smoke] env=${ENV_NAME}"
+echo "[EditFlow smoke] log=${LOG_PATH}"
+echo "[EditFlow smoke] metrics=${METRICS_PATH}"
+echo "[EditFlow smoke] commit=$(git rev-parse --short HEAD) $(git show -s --format=%s HEAD)"
 
 conda run --no-capture-output -n "${ENV_NAME}" python -u main.py \
   --fm-epochs 1 \

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ENV_NAME="${GGFM_ENV:-root_mbo}"
-RUN_DIR="${GGFM_RUN_DIR:-runs}"
+ENV_NAME="${EDITFLOW_ENV:-editflow}"
+RUN_DIR="${EDITFLOW_RUN_DIR:-runs}"
 STAMP="$(date +%Y%m%d_%H%M%S)"
 LOG_PATH="${RUN_DIR}/quality_rerank_smoke_${STAMP}.log"
 METRICS_PATH="${RUN_DIR}/quality_rerank_smoke_${STAMP}.json"

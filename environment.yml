@@ -1,4 +1,4 @@
-name: ggfm-a407d81-fm
+name: editflow
 channels:
   - pytorch
   - conda-forge

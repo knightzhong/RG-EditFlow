@@ -2,9 +2,9 @@
 set -euo pipefail
 
 mkdir -p runs/paper_ablation_8seed runs/paper_param_8seed
-PYTHON_ENV=${GGFM_ENV:-root_mbo}
+PYTHON_ENV=${EDITFLOW_ENV:-editflow}
 export PYTHONDONTWRITEBYTECODE=1
-export PYTHONPYCACHEPREFIX=${PYTHONPYCACHEPREFIX:-/tmp/ggfm_a407d81_pycache}
+export PYTHONPYCACHEPREFIX=${PYTHONPYCACHEPREFIX:-/tmp/editflow_pycache}
 
 run_json() {
   local name="$1"; shift

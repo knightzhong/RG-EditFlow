@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PYTHON_ENV=${GGFM_ENV:-root_mbo}
+PYTHON_ENV=${EDITFLOW_ENV:-editflow}
 mkdir -p runs/reliability_gate_8seed checkpoints_reliability_gate_8seed
 export PYTHONDONTWRITEBYTECODE=1
-export PYTHONPYCACHEPREFIX=${PYTHONPYCACHEPREFIX:-/tmp/ggfm_a407d81_pycache}
+export PYTHONPYCACHEPREFIX=${PYTHONPYCACHEPREFIX:-/tmp/editflow_pycache}
 
 run_cmd() {
   local name="$1" log="$2"; shift 2

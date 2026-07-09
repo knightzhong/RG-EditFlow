@@ -2,7 +2,7 @@
 set -euo pipefail
 
 RUN_GROUP="${1:-runs/paper_defense_$(date +%Y%m%d_%H%M%S)}"
-ENV_NAME="${GGFM_ENV:-root_mbo}"
+ENV_NAME="${EDITFLOW_ENV:-editflow}"
 mkdir -p "$RUN_GROUP"
 DRIVER_LOG="$RUN_GROUP/driver.log"
 STATUS_JSON="$RUN_GROUP/driver_status.json"

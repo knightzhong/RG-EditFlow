@@ -33,7 +33,7 @@ from src.quality import (
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="GGFM a407d81 GP-supervised Flow Matching")
+    parser = argparse.ArgumentParser(description="EditFlow offline model-based optimization")
     parser.add_argument("--task-name", default=None, help="Override Config.TASK_NAME")
     parser.add_argument("--device", default=None, help="Override Config.DEVICE")
     parser.add_argument("--seed", type=int, default=None, help="Override Config.SEED")
@@ -174,7 +174,7 @@ def main():
     run_start = time.time()
 
     # 0. 初始化环境
-    print(f"=== GGFM Trajectory Flow: {Config.TASK_NAME} ===")
+    print(f"=== EditFlow: {Config.TASK_NAME} ===")
     set_seed(Config.SEED)
     device = torch.device(Config.DEVICE if torch.cuda.is_available() else "cpu")
     
